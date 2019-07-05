@@ -1,18 +1,17 @@
 # lasersight metamod plugin Makefile for linux and win32 (mingw)
 
-# CFLAGS = -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -Dstrcmpi=strcasecmp
 LFLAGS = -shared -static
 ARCH = $(shell uname -m)
 LS_COMMIT = $(firstword $(shell git rev-parse --short=6 HEAD) unknown)
-CFLAGS =  -O1 -DVVERSION=\"$(LS_COMMIT)\" -fexpensive-optimizations -ffast-math -fpermissive -fPIC \
-	  -funroll-loops -fomit-frame-pointer -Wall -fno-exceptions -fno-rtti \
+CFLAGS =  -O1 -DVVERSION=\"$(LS_COMMIT)\" -fexpensive-optimizations -ffast-math -fpermissive \
+	  -funroll-loops -fomit-frame-pointer -Wall -fno-exceptions -fno-rtti -fPIC \
 	  -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -Dstrcmpi=strcasecmp
 
 # force i686 postfix on x86_64 architecture
 ifeq ($(ARCH), x86_64)
-	DLLNAME = lasersights_mm_i686.so
+	DLLNAME = lasersight_mm_i686.so
 else
-	DLLNAME = lasersights_mm_$(ARCH).so
+	DLLNAME = lasersight_mm_$(ARCH).so
 endif
 
 # architecture depended flags
@@ -41,8 +40,8 @@ OBJ =	src/meta_api.o		\
         src/lasersight_ini.o	\
         src/libini.o
 
-DOCC = $(CC) $(CFLAGS) $(INCLUDEDIRS) -o $@ -c $<
-DOO = $(CC) -o $@ $(OBJ) $(LFLAGS)
+DOCC = $(CXX) $(CFLAGS) $(INCLUDEDIRS) -o $@ -c $<
+DOO = $(CXX) -o $@ $(OBJ) $(LFLAGS)
 
 $(DLLNAME) : $(OBJ)
 	$(DOO)
