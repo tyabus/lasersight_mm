@@ -1,0 +1,48 @@
+
+ CVARS 
+ ^^^^^
+// You can copy-paste this section to your server.cfg or/and listenserver.cfg
+
+// Enable/Disable lasersight plugin [1/0]
+lasersight_on 1
+
+// Enable/Disable lasersights [1/0]
+lasersight_beam 1
+
+// Enable/Disable laserdots [1/0]
+lasersight_dot 1
+
+// Sets whatever enemy teams see your team's beams [1/0] (detectes CS/DOD/TFC/Op4CTF teams)
+lasersight_enemysees 0
+
+// Sets width of lasersight [default: 1.0]
+lasersight_beamsize 1.0
+
+// Sets size of laserdot [default: 1.0]
+// If you want dots to match with beam witdh use value 0.125 here
+lasersight_dotsize 1.0
+
+// Set what ever plugin shows player's own lasersight (Only works well with listenserver-client) [0/1]
+lasersight_show_own_beam 0
+
+// Set what ever plugin shows player's own laserdot [1/0]
+lasersight_show_own_dot 1
+
+// Enable/Disable own dot/beam position fix [1/0]
+lasersight_fix_own_position 1
+
+// Allow player to hide/show beams for theimselfs (only if beams are enabled for everyone)
+lasersight_allowsetoff 1
+
+// Message shown to player when he/she hides beams with 'hidebeams' say command
+lasersight_hidingbeams "Hiding lasersights (other people still can see your beam)"
+
+// Message shown to player when he/she shows/unhides beams with 'showbeams' say command
+lasersight_showingbeams "Showing lasersights"
+
+ LINKS
+ ^^^^^
+
+Metamod-P:        http://metamod-p.sourceforge.net
+Source Code:	  https://github.com/tyabus/lasersight_mm
+ 
